@@ -300,3 +300,186 @@ img {
 body, button, a, input, textarea, select, [role="button"], [tabindex] {
   cursor: none !important; 
 }
+
+/* Parallax Planet Animations */
+@keyframes planetFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes ringRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes atmospherePulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Enhanced Space Effects */
+.space-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.space-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Planet Connection Lines */
+.planet-connection {
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, #00ffff, transparent);
+  opacity: 0.3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Enhanced Navigation with Planet Indicators */
+.nav-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.3), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.nav-item:hover::before {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-item.active::before {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.4), transparent);
+}
+
+/* Section Transitions */
+.section-transition {
+  position: relative;
+}
+
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+  pointer-events: none;
+}
+
+/* Enhanced Project Cards with Space Theme */
+.project-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #ffff00, #00ff00);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+  opacity: 0.7;
+}
+
+/* Space-themed Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00ffff, #ff00ff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ff00ff, #00ffff);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .parallax-planet {
+    transform: scale(0.7) !important;
+  }
+  
+  .nav-item {
+    padding: 6px 8px;
+    font-size: 8px;
+  }
+  
+  .nav-label {
+    display: none;
+  }
+}
+
+/* Performance Optimizations */
+.parallax-container {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Enhanced Loading Animation */
+.pixel-loader {
+  position: relative;
+}
+
+.pixel-loader::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

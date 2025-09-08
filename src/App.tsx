@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect, useRef } from "react";
+import Typewriter from 'typewriter-effect';
 import Particles from "react-particles";
 import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
@@ -38,7 +39,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight / 2; // Use middle of viewport
-      
+
       const sections = [
         { id: 'home', ref: homeRef },
         { id: 'about', ref: aboutRef },
@@ -53,7 +54,7 @@ function App() {
         if (ref.current) {
           const sectionTop = ref.current.offsetTop;
           const sectionBottom = sectionTop + ref.current.offsetHeight;
-          
+
           if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
             currentActiveSection = id;
           }
@@ -65,7 +66,7 @@ function App() {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Call once on mount to set initial state
-    
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -189,7 +190,7 @@ function App() {
       </nav>
 
       <main className="relative z-10 flex flex-col h-full px-5">
-        <section 
+        <section
           id="home"
           ref={homeRef}
           className="min-h-screen flex items-center justify-center relative px-4 flex-col text-center"
@@ -198,13 +199,22 @@ function App() {
             <h1 className="glitch-text text-4xl md:text-6xl font-pixel text-cyan-400 mb-4">
               {glitchText}
             </h1>
-            <h3 className="text-pink-400 text-base md:text-lg font-pixel mb-6">
-              &gt; SPACE DEVELOPER &lt;
-            </h3>
+            <div className="flex text-pink-400 text-base md:text-lg font-pixel mb-6 gap-2 items-center justify-center">
+              <span>&gt;</span>
+              <Typewriter
+                options={{
+                  strings: ['SPACE DEVELOPER', 'DEDICATED TO EXCELLENCE', 'BRINGING IDEAS TO LIFE'],
+                  autoStart: true,
+                  loop: true,
+                  skipAddStyles: true,
+                }}
+              />
+              <span>&lt;</span>
+            </div>
+
           </div>
           <p className="max-w-2xl mx-auto text-gray-300 font-pixel text-xs leading-relaxed mb-8">
-            EXPLORING THE DIGITAL COSMOS • BUILDING STELLAR APPLICATIONS •
-            CONQUERING BUGS ACROSS THE GALAXY
+            SPACE ENGINEER SPECIALIZING IN INTERGALACTIC WEB APPLICATIONS • BUILDING SCALABLE SYSTEMS THAT DEFY THE LAWS OF PHYSICS
           </p>
           <div className="flex gap-4 justify-center">
             <button
@@ -223,7 +233,7 @@ function App() {
         </section>
 
         {/* about */}
-        <section 
+        <section
           id="about"
           ref={aboutRef}
           className="min-h-screen flex items-center justify-center relative px-4 flex-col text-center"
@@ -235,7 +245,7 @@ function App() {
             <div className="space-card">
               <h3 className="text-2xl font-pixel text-pink-400 mb-4">COMMANDER PROFILE</h3>
               <div className="text-gray-300 font-pixel text-xs leading-relaxed space-y-4">
-                <p>GREETINGS, EARTHLING! I AM ALEX, YOUR FRIENDLY NEIGHBORHOOD SPACE DEVELOPER.</p>
+                <p>GREETINGS, EARTHLING! I AM WILLIAM, YOUR FRIENDLY NEIGHBORHOOD SPACE DEVELOPER.</p>
                 <p>WITH 5+ YEARS OF EXPERIENCE NAVIGATING THE COSMIC WEB, I SPECIALIZE IN BUILDING STELLAR USER EXPERIENCES AND ROCKET-FAST APPLICATIONS.</p>
                 <p>MY MISSION: TO BRIDGE THE GAP BETWEEN IMAGINATION AND DIGITAL REALITY.</p>
               </div>
@@ -262,7 +272,7 @@ function App() {
           </div>
         </section>
 
-        <section 
+        <section
           id="resume"
           ref={resumeRef}
           className="min-h-screen flex items-center justify-center relative px-4 flex-col text-center"
@@ -308,7 +318,7 @@ function App() {
           </div>
         </section>
 
-        <section 
+        <section
           id="projects"
           ref={projectsRef}
           className="min-h-screen flex items-center justify-center relative px-4 flex-col text-center"
@@ -343,7 +353,7 @@ function App() {
           </div>
         </section>
 
-        <section 
+        <section
           id="contact"
           ref={contactRef}
           className="min-h-screen flex items-center justify-center relative px-4 flex-col text-center"
@@ -388,7 +398,7 @@ function App() {
                       EMAIL RELAY
                     </div>
                     <div className="font-pixel text-xs text-gray-400">
-                      alex@spacecoder.dev
+                      WILLIAM@spacecoder.dev
                     </div>
                   </div>
                 </a>
@@ -399,7 +409,7 @@ function App() {
                       LINKEDIN NETWORK
                     </div>
                     <div className="font-pixel text-xs text-gray-400">
-                      /in/alexcosmic
+                      /in/WILLIAMcosmic
                     </div>
                   </div>
                 </a>
@@ -410,7 +420,7 @@ function App() {
                       GITHUB REPOSITORY
                     </div>
                     <div className="font-pixel text-xs text-gray-400">
-                      /alexcosmic
+                      /WILLIAMcosmic
                     </div>
                   </div>
                 </a>
@@ -421,7 +431,7 @@ function App() {
                       TWITTER FEED
                     </div>
                     <div className="font-pixel text-xs text-gray-400">
-                      @alexcosmic
+                      @WILLIAMcosmic
                     </div>
                   </div>
                 </a>
@@ -434,7 +444,7 @@ function App() {
       <footer className="relative z-10 border-t border-gray-800 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="font-pixel text-xs text-gray-500">
-            © 2024 WILLIAM WIJAYA • TRANSMITTED FROM EARTH ORBIT • ALL RIGHTS RESERVED ACROSS THE GALAXY
+            © 2025 WILLIAM WIJAYA • TRANSMITTED FROM EARTH ORBIT • ALL RIGHTS RESERVED ACROSS THE GALAXY
           </div>
         </div>
       </footer>
